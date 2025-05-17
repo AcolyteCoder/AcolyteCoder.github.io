@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blackjack</title>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+</head>
+<body>
+  <h1>Welcome to Blackjack!</h1>
+  <p>You win 10 coins just for visiting 🎉</p>
+
+  <script>
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyA1ZF_XDqayIS-f4ADKQ44VoiZ4pvWmLPw",
+  authDomain: "gamblingclassroom.firebaseapp.com",
+  databaseURL: "https://gamblingclassroom-default-rtdb.firebaseio.com",
+  projectId: "gamblingclassroom",
+  storageBucket: "gamblingclassroom.firebasestorage.app",
+  messagingSenderId: "442864515626",
+  appId: "1:442864515626:web:afdedfb2fff9c88b4ae153",
+  measurementId: "G-CMV0EKFFPM"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.database();
+
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        const uid = user.uid;
+        const userRef = db.ref('users/' + uid + '/coins');
+        userRef.once('value').then(snap => {
+          let coins = snap.val() || 0;
+          coins += 10;
+          userRef.set(coins);
+        });
+      } else {
+        alert("Login required!");
+        window.location.href = "index.html";
+      }
+    });
+  </script>
+</body>
+</html>
