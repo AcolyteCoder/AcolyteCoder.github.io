@@ -3,36 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Classroom</title>
+  <title>Gambling Classroom</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #f5f5f5;
+      background-color: #f1f3f4;
     }
 
-    .main-header {
+    header {
       display: flex;
       align-items: center;
+      padding: 0 20px;
       background-color: white;
-      padding: 10px 16px;
+      height: 64px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
     }
 
-    .main-header h1 {
-      margin-left: 16px;
-      font-size: 1.5rem;
-      color: #3c4043;
-    }
-
-    .main-header .material-icons {
+    header .material-icons {
+      font-size: 28px;
+      color: #5f6368;
       cursor: pointer;
-      font-size: 24px;
+    }
+
+    header h1 {
+      font-size: 20px;
+      margin-left: 16px;
+      color: #202124;
     }
 
     .spacer {
@@ -40,20 +42,16 @@
     }
 
     .class-container {
+      padding: 32px 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 16px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
     }
 
     .class-card {
+      background-color: white;
       border-radius: 8px;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 180px;
-      padding: 16px;
+      overflow: hidden;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       cursor: pointer;
       transition: transform 0.2s;
@@ -63,26 +61,30 @@
       transform: translateY(-4px);
     }
 
-    .class-header h2 {
-      margin: 0 0 4px 0;
+    .class-banner {
+      padding: 16px;
+      color: white;
     }
 
-    .class-header p {
-      margin: 0;
+    .class-body {
+      padding: 16px;
+      color: #3c4043;
     }
 
-    .class-footer {
-      display: flex;
-      justify-content: flex-end;
+    .class-body .material-icons {
+      float: right;
+      color: #5f6368;
     }
 
-    .class-footer .material-icons {
-      font-size: 24px;
-    }
+    .banner-blackjack { background-color: #1b5e20; }     /* Dark Green */
+    .banner-poker { background-color: #b71c1c; }         /* Red */
+    .banner-roulette { background-color: #0d47a1; }      /* Blue */
+    .banner-slots { background-color: #ff6f00; }         /* Orange */
+    .banner-craps { background-color: #4a148c; }         /* Purple */
   </style>
 </head>
 <body>
-  <header class="main-header">
+  <header>
     <span class="material-icons">menu</span>
     <h1>Classroom</h1>
     <div class="spacer"></div>
@@ -90,45 +92,62 @@
   </header>
 
   <main class="class-container">
-    <div class="class-card" style="background-color: #4285F4;">
-      <div class="class-header">
-        <h2>Math 101</h2>
-        <p>Period 1 - Mr. Smith</p>
+
+    <div class="class-card">
+      <div class="class-banner banner-blackjack">
+        <h2>Blackjack Basics</h2>
+        <p>Instructor: Jack Dealer</p>
       </div>
-      <div class="class-footer">
+      <div class="class-body">
+        Learn how to beat the house in 21.
         <span class="material-icons">folder</span>
       </div>
     </div>
 
-    <div class="class-card" style="background-color: #EA4335;">
-      <div class="class-header">
-        <h2>History</h2>
-        <p>Period 2 - Ms. Johnson</p>
+    <div class="class-card">
+      <div class="class-banner banner-poker">
+        <h2>Poker Strategies</h2>
+        <p>Instructor: Texas Hold'em</p>
       </div>
-      <div class="class-footer">
+      <div class="class-body">
+        Master bluffing, betting, and tells.
         <span class="material-icons">folder</span>
       </div>
     </div>
 
-    <div class="class-card" style="background-color: #34A853;">
-      <div class="class-header">
-        <h2>Science</h2>
-        <p>Period 3 - Dr. Lee</p>
+    <div class="class-card">
+      <div class="class-banner banner-roulette">
+        <h2>Roulette Rules</h2>
+        <p>Instructor: Red & Black</p>
       </div>
-      <div class="class-footer">
+      <div class="class-body">
+        Learn inside and outside bets.
         <span class="material-icons">folder</span>
       </div>
     </div>
 
-    <div class="class-card" style="background-color: #FBBC05;">
-      <div class="class-header">
-        <h2>English</h2>
-        <p>Period 4 - Mrs. Adams</p>
+    <div class="class-card">
+      <div class="class-banner banner-slots">
+        <h2>Slot Machine Math</h2>
+        <p>Instructor: Cherry Jackpot</p>
       </div>
-      <div class="class-footer">
+      <div class="class-body">
+        Understand odds and volatility.
         <span class="material-icons">folder</span>
       </div>
     </div>
+
+    <div class="class-card">
+      <div class="class-banner banner-craps">
+        <h2>Craps Crash Course</h2>
+        <p>Instructor: Dice Master</p>
+      </div>
+      <div class="class-body">
+        Bet smart on the roll of dice.
+        <span class="material-icons">folder</span>
+      </div>
+    </div>
+
   </main>
 </body>
 </html>
